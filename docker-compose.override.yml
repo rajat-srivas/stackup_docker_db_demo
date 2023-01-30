@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  stackup_docker_db_demo:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "80"
