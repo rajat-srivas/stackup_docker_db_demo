@@ -18,8 +18,6 @@ services:
     restart: always
     ports:
       - "27017:27017"
-    volumes:
-      - stackup_mongo_data:/data/db
 
   stackupRedis:
     image: redis:alpine
@@ -55,6 +53,5 @@ services:
       - pgadmin-data:/var/lib/pgadmin
 
 volumes:
-  stackup_mongo_data:
   stackup_postgres_data:
   pgadmin-data:
