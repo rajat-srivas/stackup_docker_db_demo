@@ -25,11 +25,14 @@ namespace stackup_docker_db_demo.Controllers
 		[HttpPost]
 		public async Task<IActionResult> CreateDiscountCoupon(BlogPost post)
 		{
-			//dummy code to create post in all three containerized db
 			post.Id = Guid.NewGuid().ToString();
-			post.BlogTitle += " Redis";
+			post.BlogTitle = "Connecting to Dockerized Redis from Asp.net Core";
 			await _redis.UpdateKeyValue(post);
+
+			post.BlogTitle = "Connecting to Dockerized postgres from Asp.net Core";
 			await _postgress.CreateBlogPost(post);
+
+			post.BlogTitle = "Connecting to Dockerized mongodb from Asp.net Core";
 			await _mongo.CreatePost(post);
 			return Ok();
 		}
